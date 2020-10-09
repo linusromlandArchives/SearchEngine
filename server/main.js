@@ -7,4 +7,5 @@ app.use(express.static(clientdir))
 
 
 app.get('/', (req, res) => res.sendFile(clientdir + "/index.html"))
+
 app.listen(port, () => console.log(`Server listening on port ${port}!`))
