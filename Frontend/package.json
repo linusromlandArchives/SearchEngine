@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Romland.Space",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linusromland/Romland.Space.git"
+  },
+  "author": "linusromland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linusromland/Romland.Space/issues"
+  },
+  "homepage": "https://github.com/linusromland/Romland.Space#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.8"
+  }
+}
