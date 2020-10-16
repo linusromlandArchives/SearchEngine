@@ -18,7 +18,7 @@
   "homepage": "https://github.com/linusromland/Romland.Space#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.10.8"
+    "mongoose": "^5.10.9"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
