@@ -12,8 +12,8 @@ exports.cnctDB = (collectionname) =>{
 
 }
 
-exports.findInDB = async (Model) => {
-  return await Model.find({})
+exports.findTopinDB = async (Model, num) => {
+  return await Model.find({}).limit(num)
 }
 
 exports.saveToDB = (input) => {

@@ -17,6 +17,10 @@ a, p, h1, h2, h3, h4{
     background: $bg_color;
     width: 100vw;
     height: 90vh;
+    background: linear-gradient(270deg, #44c900, #2bb2eb);
+    background-size: 400% 400%;
+    animation: BackgroundAnimation 30s ease infinite;
+
 }
 header{
     @include FlexCenter();

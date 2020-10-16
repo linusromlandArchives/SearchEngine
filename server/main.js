@@ -8,6 +8,7 @@ const clientdir = __dirname + "/client"
 app.use(express.static(clientdir))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.set('view engine', 'ejs');
 dbModule.cnctDB("RomlandSpaceLandingPageLinks");
 
 const linkSchema = new mongoose.Schema({
@@ -24,12 +25,16 @@ function createLink(nameIN, linkIN){
    return tmp
 }
 
-app.get('/', (req, res) => res.sendFile(clientdir + "/index.html"))
+app.get('/', async (req, res) => {
+    res.render('index',{
+        data : await dbModule.findTopinDB(link, 100)
+    }  )
+}) 
 app.get('/insertNewLink', (req, res) => res.sendFile(clientdir + "/insert.html"))
 app.post('/newLink', (req, res) => {
-    if(req.body.auth ==  "auth"){
+    //if(req.body.auth ==  "auth"){
         dbModule.saveToDB(createLink(req.body.name, req.body.link))
-    } 
+ //   } 
    res.redirect('/insertNewLink')
  })
 
