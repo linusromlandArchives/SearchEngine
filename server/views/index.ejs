@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap" rel="stylesheet">
     <title>Romland.Space</title>
 </head>
+
 <body>
     <header>
         <p>Romland.Space</p>
@@ -19,12 +21,13 @@
             </form>
             <div id="mostPopular">
                 <% for( let index = 0; index < data.length; index++ ) { %>
-                    <div style="background-color: aqua; width: 20%;">
-                            <a href="<%- data[index].link %>"><%- data[index].name %> </p>
-                    </div>
-                    <% } %>
+                <div class="searchItem">
+                    <a href="<%- data[index].link %>"><%- data[index].name %> </p>
+                </div>
+                <% } %>
             </div>
         </div>
     </div>
 </body>
+
 </html>

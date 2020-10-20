@@ -1,59 +1,80 @@
-@import './_variables';
-@import './_functions';
+@import "./_variables";
+@import "./_functions";
 
-
-*{
+* {
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     font-family: $main_font;
 }
-a, p, h1, h2, h3, h4{
+a,
+p,
+h1,
+h2,
+h3,
+h4 {
     color: $text_color;
 }
-#main{
+#main {
     @include FlexCenter();
     justify-content: center;
     background: $bg_color;
     width: 100vw;
     height: 90vh;
-    background: linear-gradient(270deg, #44c900, #2bb2eb);
+    background: linear-gradient(270deg, $gradient_color_start, $gradient_color_end);
     background-size: 400% 400%;
-    animation: BackgroundAnimation 30s ease infinite;
-
+    animation: BackgroundAnimation 2s ease infinite;
 }
-header{
+header {
     @include FlexCenter();
     width: 100%;
     height: 10vh;
     background: $header_color;
-    p{
+    p {
         font-weight: 80;
         padding-left: 1%;
         color: $text_color;
-        font-size: $font_size_title;}
-    a{
+        font-size: $font_size_title;
+    }
+    a {
         font-size: $font_size_header;
         position: absolute;
         right: 2%;
         text-decoration: none;
-        &:hover{
+        &:hover {
             color: $hover_text_color;
             text-shadow: 0px 0px 40px black;
         }
     }
 }
-#searchArea{
+#searchArea {
+    border-radius: 2em;
     appearance: none;
     justify-content: center;
     width: 50%;
     height: 80%;
+    margin: 25px;
+    background-color: $bg_color;
+    box-shadow: 0 0 5px 10px $bg_color;
 }
 
-#searchbox{
-    background-color: gray;
-    width: 100%;
+#searchbox {
+    margin: 2%;
+    margin-left: 10%;
+    width: 80%;
     height: 5vh;
+    border-radius: 1em; 
+    text-align: center;
+    font-size: $font_size_search;
 }
 
 
+#mostPopular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .searchItem{
+        margin: 1%;
+    }
+}
