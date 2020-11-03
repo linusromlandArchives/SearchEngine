@@ -133,5 +133,7 @@ header a:hover {
 
 #mostPopular .searchItem {
   margin: 1%;
+  width: 70%;
+  height: 25%;
 }
 /*# sourceMappingURL=master.css.map */
