@@ -15,8 +15,19 @@
         <a href="/about">About</a>
     </header>
     <div id="main">
+        <script>
+            changeContent = function(){
+                if(document.getElementById("searchbox").value == ""){
+                    document.getElementById("mostPopular").style.display = "flex";
+                    document.getElementById("searchResult").style.display = "none";
+                }else{
+                    document.getElementById("mostPopular").style.display = "none";
+                    document.getElementById("searchResult").style.display = "flex";
+                }
+            }
+       </script> 
         <div id="searchArea">
-            <input id="searchbox" type="search" placeholder="Search" onChange="changeContent()">
+            <input id="searchbox" type="search" placeholder="Search" oninput='changeContent()'>
             <div id="mostPopular">
                 <% for( let index = 0; index < data.length; index++ ) { %>
                 <div class="searchItem">
@@ -24,6 +35,16 @@
                 </div>
                 <% } %>
             </div>
+            <div id="searchResult">
+                <% for( let index = 0; index < data.length; index++ ) { %>
+                    <div class="searchItem">
+                        <a href="<%- data[index].link %>"><%- data[index].name %> </p>
+                    </div>
+                    <% } %>
+            </div>
+            <script>
+            document.getElementById("searchResult").style.display = "none";
+            </script>
         </div>
     </div>
 </body>

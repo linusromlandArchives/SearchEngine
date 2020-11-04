@@ -29,7 +29,7 @@ function createLink(nameIN, linkIN, topIN){
 
 app.get('/', async (req, res) => {
     res.render('index',{
-        data : await topDB()
+        data : await topDB(10)
     }  )
 }) 
 app.get('/about', async (req, res) => {
@@ -37,7 +37,7 @@ app.get('/about', async (req, res) => {
 }) 
 app.get('/insertNewLink', (req, res) => res.sendFile(clientdir + "/insert.html"))
 app.post('/newLink', (req, res) => {
-    if(req.body.auth ==  "coolerPassword"){
+    if(req.body.auth ==  ""){
       let top = false;
       if(req.body.top == "on") top = true
       dbModule.saveToDB(createLink(req.body.name, req.body.link, top))
@@ -50,12 +50,12 @@ app.listen(port, () => console.log(`Server listening on port ${port}!`))
 async function topDB(limit){
   
   let mdl = await dbModule.findTopinDB(link)
-  console.log(mdl)
   let topResults = []
   limit--
   for (let index = 0; index < mdl.length; index++) {
      if(mdl[index].top){
-       if(topResults.length < limit) topResults.push(mdl[index])
+      if(topResults.length < limit) topResults.push(mdl[index])
      }
   }
+  return topResults;
 }
