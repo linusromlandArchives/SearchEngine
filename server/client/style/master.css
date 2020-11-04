@@ -115,10 +115,11 @@ header a:hover {
   font-size: 1em;
 }
 
-#mostPopular {
+#mostPopular, #searchResult {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -131,9 +132,13 @@ header a:hover {
           flex-direction: column;
 }
 
-#mostPopular .searchItem {
+#mostPopular .searchItem, #searchResult .searchItem {
   margin: 1%;
   width: 70%;
   height: 25%;
+}
+
+#searchResult {
+  display: none;
 }
 /*# sourceMappingURL=master.css.map */
