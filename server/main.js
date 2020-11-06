@@ -12,7 +12,7 @@ const clientdir = __dirname + "/client";
 app.use(express.static(clientdir));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-this.app.use(cors());
+app.use(cors());
 app.set("view engine", "ejs");
 dbModule.cnctDB("RomlandSpaceLandingPageLinks");
 security();
