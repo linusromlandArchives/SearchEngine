@@ -1,6 +1,7 @@
 const express = require('express')
 const dbModule = require('./dbModule')
 const mongoose = require('mongoose');
+var url = require('url');
 const app = express()
 const port = 3000
 const clientdir = __dirname + "/client"
@@ -35,6 +36,19 @@ app.get('/', async (req, res) => {
 app.get('/about', async (req, res) => {
   res.render('about')
 }) 
+
+app.get('/getSearch', async (req, res) => {
+  let url_parts = url.parse(req.url, true);
+  let urlquery = url_parts.query;
+  let search = urlquery.search ? urlquery.search : ""
+
+  res.setHeader('Content-Type', 'application/json');
+  let searchThing = await dbModule.getInDB(link, search)
+  console.log(searchThing)
+  res.send(searchThing)
+});
+
+
 app.get('/insertNewLink', (req, res) => res.sendFile(clientdir + "/insert.html"))
 app.post('/newLink', (req, res) => {
     if(req.body.auth ==  ""){

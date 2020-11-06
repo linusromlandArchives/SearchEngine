@@ -16,17 +16,36 @@
     </header>
     <div id="main">
         <script>
-            changeContent = function(){
-                if(document.getElementById("searchbox").value == ""){
+            async function changeContent() {
+                let searchStrung = document.getElementById("searchbox").value
+                let search = await getJSON(searchStrung);
+                console.log(search)
+                if (document.getElementById("searchbox").value == "") {
                     document.getElementById("mostPopular").style.display = "flex";
                     document.getElementById("searchResult").style.display = "none";
-                }else{
+                } else {
                     document.getElementById("mostPopular").style.display = "none";
                     document.getElementById("searchResult").style.display = "flex";
                 }
                 console.log("changed stuff")
             }
-       </script> 
+            function changeSearch(searchResults){
+                let searchDiv = document.getElementById("searchResult")
+                for (let index = 0; index < actSearch.length; index++) {
+
+                }
+            }
+            async function getJSON(search) {
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        changeSearch(JSON.parse(xhttp.responseText))
+                    }
+                };
+                xhttp.open("GET", "http://localhost:3000/getSearch?search=" + search, true);
+                xhttp.send();
+            }
+        </script>
         <div id="searchArea">
             <input id="searchbox" type="search" placeholder="Search" oninput='changeContent()'>
             <div id="mostPopular">
@@ -37,11 +56,7 @@
                 <% } %>
             </div>
             <div id="searchResult">
-                <% for( let index = 0; index < data.length; index++ ) { %>
-                    <div class="searchItem">
-                        <a href="<%- data[index].link %>"><%- data[index].name %> </p>
-                    </div>
-                    <% } %>
+                
             </div>
         </div>
     </div>
