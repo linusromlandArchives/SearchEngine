@@ -44,7 +44,7 @@
                         changeSearch(JSON.parse(xhttp.responseText))
                     }
                 };
-                xhttp.open("GET", "http://localhost:3000/getSearch?search=" + search, true);
+                xhttp.open("GET", "/getSearch?search=" + search, true);
                 xhttp.send();
             }
         </script>
