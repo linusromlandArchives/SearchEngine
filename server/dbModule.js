@@ -16,10 +16,8 @@ exports.cnctDB = (collectionname) => {
 
 exports.getInDB = async (Model, search) => {
   const regex = new RegExp(escapeRegex(search), 'gi');
-  await db.collection("links").find({ $and: [{ $or: [{ "name": regex }, { "link": regex }] }, ] }, { fields: { _id: 0, link: 1, name: 1 } }).limit(10).toArray(function (err, result) {
-      if (err) throw err;
-       return result
-  });
+  return await Model.find({ 
+    $and: [{ $or: [{ "name": regex }, { "link": regex }] }, ] }).limit(10)
 }
 
 function escapeRegex(text) {

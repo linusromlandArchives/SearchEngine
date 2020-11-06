@@ -31,8 +31,10 @@
             }
             function changeSearch(searchResults){
                 let searchDiv = document.getElementById("searchResult")
-                for (let index = 0; index < actSearch.length; index++) {
-
+                searchDiv.innerHTML = ""
+                for (let index = 0; index < searchResults.length; index++) {
+                    let add = searchDiv.innerHTML + "<div class=\"searchItem\"><a href=\"" + searchResults[index].link + "\">" + searchResults[index].name + "</a></div>"
+                    searchDiv.innerHTML = add
                 }
             }
             async function getJSON(search) {
