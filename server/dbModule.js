@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const mongAuth = require('./mongoauth.json')
 let db;
 
 exports.cnctDB = (collectionname) => {
-  let dbLink = `mongodb://localhost/${collectionname}`
+  let dbLink = `mongodb://${mongAuth}@localhost/${collectionname}`
   mongoose.connect(dbLink, {
     useNewUrlParser: true,
     useUnifiedTopology: true
