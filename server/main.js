@@ -34,7 +34,7 @@ function createLink(nameIN, linkIN, topIN) {
 }
 
 app.get("/", async (req, res) => {
-  console.log(topDB(1))
+  console.log(await topDB(1))
   res.render("index", {
     data: await topDB(10),
   });
