@@ -3,11 +3,16 @@ const mongAuth = require('./mongoauth.json')
 let db;
 
 exports.cnctDB = (collectionname) => {
-  let dbLink = `mongodb://${mongAuth}@localhost/${collectionname}`
-  mongoose.connect(dbLink, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
+  mongoose.createConnection(
+    "mongodb://localhost:27017/" + collectionname,
+    {
+      "auth": {
+        "authSource": "admin"
+      },
+      "user": mongAuth.username,
+      "pass": mongAuth.pass
+    }
+  );
 
   db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
