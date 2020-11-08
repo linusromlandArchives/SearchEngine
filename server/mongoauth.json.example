@@ -1,3 +1,4 @@
 {
-    "auth": "username:password"
+    "username": "username",
+    "pass": "password
 }
