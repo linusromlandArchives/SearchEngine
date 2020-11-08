@@ -3,7 +3,7 @@ const mongAuth = require('./mongoauth.json')
 let db;
 
 exports.cnctDB = (collectionname) => {
-  mongoose.createConnection(
+  mongoose.connect(
     "mongodb://localhost:27017/" + collectionname,
     {
       "auth": {
